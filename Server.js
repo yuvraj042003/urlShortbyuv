@@ -1,18 +1,16 @@
 const express = require('express')
-const mongooose = require('mongoose');
+const mongooose = require('mongoose')
 const ShortUrl = require('./model/shortUrl')
-const dotenv = require("dotenv");
+const dotenv = require('dotenv')
 const app = express()
 
 //config
 dotenv.config({path:"config/config.env"});
 
-mongooose.connect(`${process.env.DB_URI}`,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-.then(()=>console.log('connected'))
-.catch(e=>console.log(e));
+mongooose.connect(process.env.MONGO, {
+    useNewUrlParser: true, useUnifiedTopology: 
+    true})
+
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended:false}))
@@ -33,5 +31,5 @@ app.get('/:shortUrl', async (req,res) => {
     
     res.redirect(shortUrl.full)
 })
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 6000);
 console.log(`Server is running on `)
