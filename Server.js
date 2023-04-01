@@ -5,7 +5,7 @@ const dotenv = require('dotenv')
 const app = express()
 
 //config
-dotenv.config({path:"config/config.env"});
+dotenv.config({path:"config.env"});
 
 mongooose.connect(process.env.MONGO, {
     useNewUrlParser: true, useUnifiedTopology: 
