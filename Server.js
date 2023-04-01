@@ -4,10 +4,9 @@ const ShortUrl = require('./model/shortUrl')
 const app = express()
 const dotenv = require('dotenv');
 
-dotenv.config({path: 'config.env'});
+dotenv.config();
 mongooose.connect(process.env.MONGO, {
-    useNewUrlParser: true, useUnifiedTopology: 
-    true})
+    useNewUrlParser: true, useUnifiedTopology: true })
 
 // hii  sddssnajnjbd
 app.set('view engine', 'ejs')
