@@ -8,9 +8,11 @@ const app = express()
 dotenv.config({path:"config/config.env"});
 
 mongooose.connect(`${process.env.DB_URI}`,{
-    useNewUrlParser: true, useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
-
+.then(()=>console.log('connected'))
+.catch(e=>console.log(e));
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended:false}))
